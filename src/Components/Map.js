@@ -59,7 +59,7 @@ class Map extends React.Component {
                         console.log('latitude', position.coords.latitude,
                             'longitude', position.coords.longitude);
                         map.setCenter({ lat: position.coords.latitude, lng: position.coords.longitude });
-                        map.setZoom(18);
+                        map.setZoom(17);
                         
                         var locationMarker = new H.map.Marker({lat: position.coords.latitude, lng:position.coords.longitude});
                         map.addObject(locationMarker);
