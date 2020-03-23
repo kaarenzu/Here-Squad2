@@ -60,6 +60,10 @@ class Map extends React.Component {
                             'longitude', position.coords.longitude);
                         map.setCenter({ lat: position.coords.latitude, lng: position.coords.longitude });
                         map.setZoom(18);
+                        
+                        var locationMarker = new H.map.Marker({lat: position.coords.latitude, lng:position.coords.longitude});
+                        map.addObject(locationMarker);
+                        
                     },
                     function error(error_message) {
                         // for when getting location results in an error
