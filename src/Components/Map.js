@@ -3,22 +3,27 @@ import * as React from 'react';
 
 class Map extends React.Component {
     mapRef = React.createRef();
-    state = {
-        map: null,
-        center: {
-            lat: -33.444379,
-            lng: -70.650400
-        }
-    };
+    constructor(props) {
+        super(props)
+        this.state = {
+            map: null,
+            center: {
+                lat: -33.444379,
+                lng: -70.650400
+            }
+        };
+
+    }
 
 
     componentDidMount() {
-        const H = window.H;
-
+        const H = window.H; // Para que funcione en React hay que ponerle window a todos los "H"
+        // Pasas tu Key
         const platform = new H.service.Platform({
             apikey: "cbHG8o5UmCH1wWYcAvvSXlUJeIDjr3CMPE9geRW7Gqw"
         });
         const defaultLayers = platform.createDefaultLayers();
+        //Empieza a renderear el mapa
         const map = new H.Map(
             this.mapRef.current,
             defaultLayers.vector.normal.map,
@@ -29,6 +34,21 @@ class Map extends React.Component {
             }
         );
         console.log('Center when DidMount', this.state.center.lat, this.state.center.lng)
+
+        // Función para centrar con tu IP si falla la location de tu Browser
+        const ipLookUp = () => {
+            fetch('https://ipapi.co/json/')
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    console.log(data);
+                    map.setCenter({ lat: data.latitude, lng: data.longitude });
+                    map.setZoom(16);
+                });
+        }
+
+        // Función para centrar el mapa en tu location
         function moveMapToCenter(map) {
             const location = window.navigator && window.navigator.geolocation;
             if (location) {
@@ -44,12 +64,16 @@ class Map extends React.Component {
                     function error(error_message) {
                         // for when getting location results in an error
                         console.error('An error has occured while retrieving location', error_message)
+                        // Buscar ubicación por IP (menos preciso)
+                        ipLookUp()
                     }
                 );
             } else {
                 // geolocation is not supported
                 // get your location some other way
                 console.log('geolocation is not enabled on this browser')
+                // Buscar ubicación por IP (menos preciso)
+                ipLookUp()
             }
         }
         moveMapToCenter(map)
@@ -62,7 +86,9 @@ class Map extends React.Component {
         // This variable is unused
         const ui = H.ui.UI.createDefault(map, defaultLayers);
 
+        // Guarda el mapa en el estado
         this.setState({ map });
+        console.log('Mapa en el estado', map)
     }
 
     componentWillUnmount() {
