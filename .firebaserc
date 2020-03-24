@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "here-squad2"
+    "default": "squad2-here",
+    "Here": "here-squad2"
   }
 }
