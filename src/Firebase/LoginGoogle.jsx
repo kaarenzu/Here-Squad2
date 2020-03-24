@@ -20,7 +20,7 @@ class LoginGoogle extends React.Component{
 render(){
   return(
     <div>
-      <button type="button" className="btn btn-primary btn-lg" onClick={this.login}>Registrarme con Google</button>
+      <button type="button" className="btn btn-primary " onClick={this.login}>Crear una cuenta</button>
     </div>
   )
 }
