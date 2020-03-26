@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
-import LoginGoogle from '../Firebase/LoginGoogle';
+// import LoginGoogle from '../Firebase/LoginGoogle';
 import '../Css/login.css'
 // Importamos los componentes de la libreria con los que haremos el router
 import {
@@ -19,14 +19,9 @@ class LoginView extends React.Component {
           <img src="https://github.com/kaarenzu/Here-Squad2/blob/master/src/Imagenes/logo.png?raw=true" className="logo"/>
           <h5>Planifica tus viajes, siéntente seguro Move Calm te acompaña </h5>
           
-          <div className ="botones">
-          <LoginGoogle/>
-         
+          <button type="button" className="btn btn-outline-info lg" id ="crearCuenta">Crear cuenta</button>
           <button type="button" className="btn btn-outline-info lg" id ="iniciarSesion">Iniciar sesión</button>
-          </div>
-
-
-
+      
         </div>
       </Router>
     )

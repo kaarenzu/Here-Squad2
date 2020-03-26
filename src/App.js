@@ -2,8 +2,9 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-// import Map from './Components/Map'
-import LoginView from './Components/Login.jsx';
+import Map from './Components/Map'
+import LoginView from './Components/LoginView.jsx';
+// import Button from './Components/Button.jsx'
 import {
   BrowserRouter as Router,
   Route,
@@ -15,8 +16,9 @@ class App extends React.Component {
     return (
       <Router>
          <div>
-        {/* <Map /> */}
-      <LoginView/>
+        <Map />
+      {/* <LoginView/> */}
+      {/* <Button color="red" background="black"/> */}
       </div>
 
       </Router>
