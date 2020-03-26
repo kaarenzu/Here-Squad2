@@ -48,9 +48,9 @@ class Map extends React.Component {
                     // The routing mode:
                     'mode': 'fastest;publicTransport',
                     // The start point of the route:
-                    'waypoint0': `geo!${point0}`,
+                    'waypoint0': point0,
                     // The end point of the route:
-                    'waypoint1': `geo!${point1}`,
+                    'waypoint1': point1,
                     // To retrieve the shape of the route we choose the route
                     // representation mode 'display'
                     'representation': 'display'
@@ -211,7 +211,8 @@ class Map extends React.Component {
             <Routing 
             setStartingPoint={this.setStartingPoint.bind(this)}
             setEndingPoint={this.setEndingPoint.bind(this)}
-            calculateRoute={this.calculateRoute.bind(this)}/>
+            calculateRoute={this.calculateRoute.bind(this)}
+            map={this.state.map}/>
             <div ref={this.mapRef} style={{ height: "1000px" }} />;
         </div>
         )
