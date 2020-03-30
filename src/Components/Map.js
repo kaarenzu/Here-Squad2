@@ -1,6 +1,7 @@
 // src/DisplayMapClass.js
 import * as React from 'react';
 import Routing from './Routing'
+import './Map.css'
 
 class Map extends React.Component {
     mapRef = React.createRef();
@@ -60,7 +61,7 @@ class Map extends React.Component {
                         console.log('latitude', position.coords.latitude,
                             'longitude', position.coords.longitude);
                         map.setCenter({ lat: position.coords.latitude, lng: position.coords.longitude });
-                        map.setZoom(17);
+                        map.setZoom(16);
                         
                         var locationMarker = new H.map.Marker({lat: position.coords.latitude, lng:position.coords.longitude});
                         map.addObject(locationMarker);
@@ -108,7 +109,7 @@ class Map extends React.Component {
             <Routing 
             map={this.state.map}
             center={this.state.center}/>
-            <div ref={this.mapRef} style={{ height: "1000px" }} />;
+            <div ref={this.mapRef} className='map'/>
         </div>
         )
     }

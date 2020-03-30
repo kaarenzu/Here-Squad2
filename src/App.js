@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import './App.css';
+import Map from './Components/Map'
+// import 'bootstrap/dist/css/bootstrap.min.css';
 // import Navbar from './Components/Navbar.jsx';
 import LoginView from './Components/LoginView'
 import {
