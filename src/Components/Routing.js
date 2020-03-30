@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Routing.css'
 
 class Routing extends Component {
     constructor(props) {
@@ -157,7 +158,7 @@ class Routing extends Component {
     // Maneja el cambio en el input del punto de partida
     handleChangeStarting = e => {
         let point0 = e.target.value;
-        if (point0 === null || point0 === undefined) {
+        if (point0 === null || point0 === undefined || point0 ==='') {
             this.setState({
                 isLoading: false
             })
@@ -180,13 +181,12 @@ class Routing extends Component {
                     isLoading: false
                 }))
 
-
     };
 
     // Maneja el cambio en el input del punto de llegada
     handleChangeEnding = e => {
         let point1 = e.target.value;
-        if (point1 === null || point1 === undefined) {
+        if (point1 === null || point1 === undefined || point1 ==='') {
             this.setState({
                 isLoadingEnding: false
             })
@@ -279,31 +279,40 @@ class Routing extends Component {
 
     render() {
         return (
-            <div>
+            <div className='divRouting'>
                 <input
                     key="inputStarting"
                     onChange={e => this.handleChangeStarting(e)}
                     type="text"
-                    placeholder="¿Dónde estás?"
-                    ref={this.inputStarting} />
-                <ul ref={this.autosuggestDiv}>
-                    {this.state.isLoading ? this.state.autosuggestion.items.map(direction => {
-                        return <li onClick={(e) => this.handleClickAutosuggest(e, direction.position.lat, direction.position.lng)}>{direction.address.label}</li>
-                    }) : null}
-                </ul>
+                    placeholder="Tu dirección"
+                    ref={this.inputStarting} 
+                    className='input inputStarting'/>
+                
+                    {this.state.isLoading ? 
+                    <div className='list listStarting'ref={this.autosuggestDiv}> 
+                        {this.state.autosuggestion.items.map(direction => {
+                            return <li onClick={(e) => this.handleClickAutosuggest(e, direction.position.lat, direction.position.lng)}>{direction.address.label}</li>
+                        })} 
+                    </div>
+                     : null}
 
                 <input
                     key="inputEnding"
                     onChange={e => this.handleChangeEnding(e)}
                     type="text"
-                    placeholder="¿A dónde quieres ir?"
-                    ref={this.inputEnding} />
-                <ul ref={this.autosuggestEndingDiv}>
-                    {this.state.isLoadingEnding ? this.state.autosuggestionEnding.items.map(direction => {
+                    placeholder="Tu destino"
+                    ref={this.inputEnding} 
+                    className='input inputEnding'/>
+                
+                    {this.state.isLoadingEnding ? 
+                    <ul ref={this.autosuggestEndingDiv}>
+                    {this.state.autosuggestionEnding.items.map(direction => {
                         return <li onClick={(e) => this.handleClickAutosuggestEnding(e, direction.position.lat, direction.position.lng)}>{direction.address.label}</li>
-                    }) : null}
-                </ul>
-                <button onClick={e => this.handleClickButton(e)}>Buscar ruta</button>
+                    })} </ul> 
+                    : null}
+
+                <img src={require('../img/search.png')} alt="Search button" className="buttonRoute" onClick={e => this.handleClickButton(e)}/>
+                {/* <button alt="Search button" className="buttonRoute" onClick={e => this.handleClickButton(e)}>Buscar ruta</button> */}
             </div>
         );
     }
