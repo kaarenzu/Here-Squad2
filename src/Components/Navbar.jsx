@@ -7,6 +7,11 @@ import {
   Route,
   Link
 } from "react-router-dom";
+// import logo from '../Imagenes/logo.png';
+import Group from '../Imagenes/Group.png';
+import map from '../Imagenes/map.png';
+import social from '../Imagenes/social.png'
+
 
 class Navbar extends React.Component {
   render() {
@@ -16,12 +21,17 @@ class Navbar extends React.Component {
           <div className="container">
             <nav className="navbar navbar-default navbar-fixed-bottom" id="navbar" role="navigation">
               <ul>
-                <Link to="/" className="text-white "><li>Mapa</li></Link>
-                <Link to="/Comunidad" className="text-white "><li>Comunidad</li></Link>
-                <Link to="/" className="text-white "><li>Música</li></Link>
-                <Link to="/Login" className="text-white "><li>Perfil</li></Link>
+                <Link to="/" className="text-white ">
+                  <img alt="logo" src={map} className="lo" />
+                </Link>
+                <Link to="/Musica" className="text-white ">
+                  <img alt="logo" src={Group} className="lo" />
+                </Link>
+                <Link to="/Login" className="text-white "><img alt="logo" src={social} className="lo" /></Link>
+                {/* <Link to="/Login" className="text-white "><li>Perfil</li></Link> */}
               </ul>
             </nav>
+            
           </div>
           <Route exact path="/">
             <Map />
