@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import logo from '../Imagenes/logo.png';
 import '../Css/loginEmail.css';
 import firebase from './ConfigFirebase.jsx'
+import IniciarSesion from '../Components/InicioSesion';
 
 
 class LoginEmail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      estado: true,
       name: '',
       email: '',
       password: ''
@@ -33,10 +35,11 @@ class LoginEmail extends React.Component {
   singUpNewUser = (email, password, name) => {
 
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(result => result.user.updateProfile({
-        displayName: name,
-      }))
+      // .then(result => result.user.updateProfile({
+      //   displayName: this.state.name,
+      // }))
       .then(() => {
+        this.setState({ estado:false });
 
       })
       .catch((error) => {
@@ -54,25 +57,32 @@ class LoginEmail extends React.Component {
       });
   };
   render() {
-    return (
-      <div className="containerPer">
-        <img
-          alt="logo"
-          src={logo}
-          className="logoEmail" />
-          <h5 className="h5">Crea una cuenta para acceder a Move Calm</h5>
-        <div className="contInput">
-          <input type="text" className="input" placeholder="Nombre de usuario"
-            value={this.state.name} onChange={this.handleName} />
-          <input type="text" className="input" placeholder="Correo electronico"
-            value={this.state.email} onChange={this.handleEmail} />
-          <input type="text" className="input" placeholder="Contraseña"
-            value={this.state.password} onChange={this.handlePassword} />
+    if(this.state.estado){
+      return (
+        <div className="containerPer">
+          <img
+            alt="logo"
+            src={logo}
+            className="logoEmail" />
+            <h5 className="h5">Crea una cuenta para acceder a Move Calm</h5>
+          <div className="contInput">
+            <input type="text" className="input" placeholder="Nombre de usuario"
+              value={this.state.name} onChange={this.handleName} />
+            <input type="text" className="input" placeholder="Correo electronico"
+              value={this.state.email} onChange={this.handleEmail} />
+            <input type="text" className="input" placeholder="Contraseña"
+              value={this.state.password} onChange={this.handlePassword} />
+          </div>
+            <button type="submit" className="btn btn-outline-info lg" id="registrar" 
+              onClick={this.singUpNewUser}>Registrarme
+            </button>
         </div>
-          <button type="submit" className="btn btn-outline-info lg" id="registrar" 
-            onClick={this.singUpNewUser}>Registrarme
-          </button>
-      </div>
+      )
+    }
+    return (
+      <Fragment>
+        {this.state.estado?null:<IniciarSesion/>}
+      </Fragment>
     )
   }
 }

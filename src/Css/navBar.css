@@ -7,7 +7,7 @@ body{
   padding:70px
 }
 #navbar {
-  background-color: rgba(3, 16, 56, 0.5);
+  background-color: rgba(11, 68, 240, 0.185);
   width:100%
 }
 ul{
@@ -17,5 +17,13 @@ color: seashell;
 }
 a {
   color:white;
+  width: 10%;
+}
+.container{
+  max-width: 754px;
+  width: 150%;
+  margin-left: -9%;
+  margin-top: -11%;
+
 }
 }

@@ -1,12 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-// import logo from './logo.svg';
 import './App.css';
-// import Map from './Components/Map'
-// import LoginView from './Components/LoginView.jsx';
-// import Button from './Components/Button.jsx'
-// import LoginEmail from './Firebase/LoginEmail.jsx'
-import Navbar from './Components/Navbar.jsx';
+// import Navbar from './Components/Navbar.jsx';
+import LoginView from './Components/LoginView'
 import {
   BrowserRouter as Router,
   Route,
@@ -17,15 +13,12 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-         <div>
-        {/* <Map /> */}
-      <Navbar/>
-      
-      </div>
-
+        <div>
+          {/* <Map /> */}
+          {/* <Navbar /> */}
+          <LoginView/>
+        </div>
       </Router>
-     
-      
     )
   }
 }

@@ -36,10 +36,10 @@ class LoginView extends React.Component {
             {/* Con este boton cambio el estado a falso */}
             <button type="button" onClick={this.handleToggleClick}
               className="btn btn-outline-info lg"
-              id="crearCuenta">{this.state.isActive ? 'Crear cuenta' : 'Crear cuenta'}
+              id="crearCuenta">{this.state.isActive ? 'Crear una cuenta' : 'Crear cuenta'}
             </button>
             <button type="button" className="btn btn-outline-info lg"
-              onClick={this.handleClick} id="iniciarSesion">{this.state.isNavbar ? 'Iniciar Sesion' : 'false'}
+              onClick={this.handleClick} id="iniciarSesion">{this.state.isNavbar ? 'Iniciar Sesión' : 'false'}
             </button>
           </div>
         </Fragment>
