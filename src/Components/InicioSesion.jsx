@@ -10,7 +10,7 @@ class IniciarSesion extends React.Component {
       <img 
     alt="logo" 
     src={logo}
-    className="logo" />
+    className="logoSesion" />
     <h5 className="h5">Bienvenido otra vez</h5>
     <div className="contInput">
     <input type="text" className="input" placeholder="Correo electronico"/>

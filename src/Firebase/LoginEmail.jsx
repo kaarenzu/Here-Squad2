@@ -59,7 +59,7 @@ class LoginEmail extends React.Component {
         <img
           alt="logo"
           src={logo}
-          className="logo" />
+          className="logoEmail" />
           <h5 className="h5">Crea una cuenta para acceder a Move Calm</h5>
         <div className="contInput">
           <input type="text" className="input" placeholder="Nombre de usuario"
