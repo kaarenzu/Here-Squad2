@@ -16,12 +16,19 @@
     text-align: center;
     margin-left: -4%;
   }
-  .crearCuenta{
-    margin-top: 10%;
+  #crearCuenta{
+    margin-top: 5%;
+    width: 64%;
+    background-color:rgba(18, 18, 128, 0.822);
+    color:white;
+    margin-left: 8%;
+    margin-top: 11%;
   }
   #iniciarSesion{
+    margin-left: 8%;
+    width: 64%;
     margin-top: 5%;
-    width: 45%;
+    
   }
   .botones {
     margin-left: 21%;
