@@ -1,29 +1,54 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react'
-// import LoginGoogle from '../Firebase/LoginGoogle';
+import React, { Fragment } from 'react'
 import '../Css/login.css'
-// Importamos los componentes de la libreria con los que haremos el router
-import {
-  BrowserRouter as Router,
-  // eslint-disable-next-line no-unused-vars
-  Route,
-  // eslint-disable-next-line no-unused-vars
-  Link
-} from "react-router-dom"; 
+import LoginEmail from '../Firebase/LoginEmail.jsx'
+import InicioSesion from './InicioSesion.jsx';
 
 class LoginView extends React.Component {
-  render(){
+  constructor(props) {
+    super(props);
+    this.state = {
+      isActive: false,
+      isNavbar: true
+    }
+    this.handleToggleClick = this.handleToggleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+  // Función que cambia el estado del componente a falso
+  handleToggleClick() {
+    this.setState(({ isActive: true }));
+    console.log(this.state.isActive, 'mi estado')
+  }
+  handleClick() {
+    this.setState({ isNavbar: false })
+    console.log(this.state.isNavbar, 'mi estado navbar')
+  }
+  render() {
+    // Si el estado es true me muestra Login
+    if (!this.state.isActive === this.state.isNavbar) {
+      return (
+        <Fragment>
+          <div className="containe">
+            <img
+              src="https://github.com/kaarenzu/Here-Squad2/blob/master/src/Imagenes/logo.png?raw=true"
+              className="logo" />
+            <h5>Planifica tus viajes, siéntete seguro Move Calm te acompaña </h5>
+            {/* Con este boton cambio el estado a falso */}
+            <button type="button" onClick={this.handleToggleClick}
+              className="btn btn-outline-info lg"
+              id="crearCuenta">{this.state.isActive ? 'Crear cuenta' : 'Crear cuenta'}
+            </button>
+            <button type="button" className="btn btn-outline-info lg"
+              onClick={this.handleClick} id="iniciarSesion">{this.state.isNavbar ? 'Iniciar Sesion' : 'false'}
+            </button>
+          </div>
+        </Fragment>
+      )
+    }
     return(
-      <Router>
-        <div className="containe">
-          <img src="https://github.com/kaarenzu/Here-Squad2/blob/master/src/Imagenes/logo.png?raw=true" className="logo"/>
-          <h5>Planifica tus viajes, siéntente seguro Move Calm te acompaña </h5>
-          
-          <button type="button" className="btn btn-outline-info lg" id ="crearCuenta">Crear cuenta</button>
-          <button type="button" className="btn btn-outline-info lg" id ="iniciarSesion">Iniciar sesión</button>
-      
-        </div>
-      </Router>
+      <Fragment>
+        {this.state.isActive ? <LoginEmail /> : <InicioSesion />}
+      </Fragment>
     )
   }
 }

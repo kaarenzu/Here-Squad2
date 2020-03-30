@@ -1,0 +1,21 @@
+@media (min-width:200px) and (max-width:1200px){
+*{
+  margin:0%;
+  padding: 0%;
+}
+body{
+  padding:70px
+}
+#navbar {
+  background-color: rgba(3, 16, 56, 0.5);
+  width:100%
+}
+ul{
+  display: contents;
+list-style: none;
+color: seashell;
+}
+a {
+  color:white;
+}
+}

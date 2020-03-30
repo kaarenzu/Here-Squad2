@@ -2,9 +2,11 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import Map from './Components/Map'
-import LoginView from './Components/LoginView.jsx';
+// import Map from './Components/Map'
+// import LoginView from './Components/LoginView.jsx';
 // import Button from './Components/Button.jsx'
+// import LoginEmail from './Firebase/LoginEmail.jsx'
+import Navbar from './Components/Navbar.jsx';
 import {
   BrowserRouter as Router,
   Route,
@@ -16,9 +18,9 @@ class App extends React.Component {
     return (
       <Router>
          <div>
-        <Map />
-      {/* <LoginView/> */}
-      {/* <Button color="red" background="black"/> */}
+        {/* <Map /> */}
+      <Navbar/>
+      
       </div>
 
       </Router>
