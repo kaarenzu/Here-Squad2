@@ -5,11 +5,15 @@ class Routing extends Component {
         super(props)
         this.autosuggestDiv = React.createRef()
         this.inputStarting = React.createRef()
+        this.autosuggestEndingDiv = React.createRef()
+        this.inputEnding = React.createRef()
         this.state = {
             startingPoint: null,
             endingPoint: null,
             autosuggestion: null,
+            autosuggestionEnding: null,
             isLoading: false,
+            isLoadingEnding: false,
         }
     }
 
@@ -181,15 +185,32 @@ class Routing extends Component {
 
     // Maneja el cambio en el input del punto de llegada
     handleChangeEnding = e => {
-        const point1 = e.target.value;
-        // Promesa del Geocoding
-        const addressGeocoded = this.geocodingAdresses(point1)
-            .then(address =>
-                this.setEndingPoint(address))
+        let point1 = e.target.value;
+        if (point1 === null || point1 === undefined) {
+            this.setState({
+                isLoadingEnding: false
+            })
+        }
+        // Fetch de las opciones de autosuggest
+        fetch(`https://autosuggest.search.hereapi.com/v1/autosuggest?at=${this.props.center.lat},${this.props.center.lng}&limit=5&q=${point1}+die&apiKey=cbHG8o5UmCH1wWYcAvvSXlUJeIDjr3CMPE9geRW7Gqw`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                this.setState({
+                    autosuggestionEnding: data,
+                    isLoadingEnding: true,
+                })
+                console.log('isLoadingEnding', this.state.isLoadingEnding)
+                console.log('Autosuggesting Ending', this.state.autosuggestionEnding)
+            })
             .catch(err =>
-                console.error(err))
+                console.error(err),
+                this.setState({
+                    isLoadingEnding: false
+                }))
     }
 
+    // Función que maneja el click que se le da a los suggest del Starting Point
     handleClickAutosuggest = (e, lat, lng) => {
         const choice = e.target.innerText
         console.log(choice)
@@ -197,32 +218,62 @@ class Routing extends Component {
         this.setState({
             startingPoint: `${lat},${lng}`
         })
-        console.log('Estado del Autosuggest',this.state.startingPoint)
-
-
+        console.log('Estado del Autosuggest del starting', this.state.startingPoint)
     }
 
+    // Función que maneja el click que se le da a los suggest del Ending Point
+    handleClickAutosuggestEnding = (e, lat, lng) => {
+        const choice = e.target.innerText
+        console.log(choice)
+        this.inputEnding.current.value = choice
+        this.setState({
+            endingPoint: `${lat},${lng}`
+        })
+        console.log('Estado del Autosuggest del ending', this.state.endingPoint)
+    }
+
+    // Función que maneja el evento cuando le das al Botón de "Buscar Ruta"
     handleClickButton = (e) => {
         let point0 = this.inputStarting.current.value
-        if (this.state.startingPoint === null) {
-            // Promesa del Geocoding
-            const addressGeocoded = this.geocodingAdresses(point0)
+        let point1 = this.inputEnding.current.value
+        if (this.state.startingPoint === null || this.state.endingPoint === null) {
+            if (this.state.startingPoint === null && this.state.endingPoint === null) {
+                const addressGeocoded = this.geocodingAdresses(point0)
                 .then(address =>
                     this.setStartingPoint(address))
-                .then(() => 
+                .catch(err =>
+                    console.error(err))
+
+                const addressGeocodedEnding = this.geocodingAdresses(point1)
+                .then(address =>
+                    this.setEndingPoint(address))
+                .then(() =>
                     this.calculateRoute(this.state.startingPoint, this.state.endingPoint))
                 .catch(err =>
                     console.error(err))
+
+            } else if (this.state.startingPoint === null) {
+                // Promesa del Geocoding
+                const addressGeocoded = this.geocodingAdresses(point0)
+                    .then(address =>
+                        this.setStartingPoint(address))
+                    .then(() =>
+                        this.calculateRoute(this.state.startingPoint, this.state.endingPoint))
+                    .catch(err =>
+                        console.error(err))
+            } else if (this.state.endingPoint === null) {
+                    // Promesa del Geocoding
+                    const addressGeocoded = this.geocodingAdresses(point1)
+                    .then(address =>
+                        this.setEndingPoint(address))
+                    .then(() =>
+                        this.calculateRoute(this.state.startingPoint, this.state.endingPoint))
+                    .catch(err =>
+                        console.error(err))
+            }
         } else {
             this.calculateRoute(this.state.startingPoint, this.state.endingPoint)
         }
-
-        
-
-    }
-
-    componentDidMount = () => {
-
     }
 
 
@@ -237,16 +288,21 @@ class Routing extends Component {
                     ref={this.inputStarting} />
                 <ul ref={this.autosuggestDiv}>
                     {this.state.isLoading ? this.state.autosuggestion.items.map(direction => {
-                        return <li onClick={(e) => this.handleClickAutosuggest(e, direction.position.lat, direction.position.lng)} value={direction.address.label}>{direction.address.label}</li>
-                    }) : null
-                    }
+                        return <li onClick={(e) => this.handleClickAutosuggest(e, direction.position.lat, direction.position.lng)}>{direction.address.label}</li>
+                    }) : null}
                 </ul>
 
                 <input
                     key="inputEnding"
                     onChange={e => this.handleChangeEnding(e)}
                     type="text"
-                    placeholder="¿A dónde quieres ir?" />
+                    placeholder="¿A dónde quieres ir?"
+                    ref={this.inputEnding} />
+                <ul ref={this.autosuggestEndingDiv}>
+                    {this.state.isLoadingEnding ? this.state.autosuggestionEnding.items.map(direction => {
+                        return <li onClick={(e) => this.handleClickAutosuggestEnding(e, direction.position.lat, direction.position.lng)}>{direction.address.label}</li>
+                    }) : null}
+                </ul>
                 <button onClick={e => this.handleClickButton(e)}>Buscar ruta</button>
             </div>
         );
