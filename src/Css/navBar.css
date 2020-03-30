@@ -1,0 +1,29 @@
+@media (min-width:200px) and (max-width:1200px){
+*{
+  margin:0%;
+  padding: 0%;
+}
+body{
+  padding:70px
+}
+#navbar {
+  background-color: rgba(11, 68, 240, 0.185);
+  width:100%
+}
+ul{
+  display: contents;
+list-style: none;
+color: seashell;
+}
+a {
+  color:white;
+  width: 10%;
+}
+.container{
+  max-width: 754px;
+  width: 150%;
+  margin-left: -9%;
+  margin-top: -11%;
+
+}
+}

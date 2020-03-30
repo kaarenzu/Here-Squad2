@@ -1,5 +1,7 @@
 import firebase from 'firebase/app';
-import 'firebase/firestore';
+import 'firebase/auth';
+import 'firebase/firestore'
+
 
 
 // Llave de firebase para poder acceder a la base de datos que tenemos en ella 
@@ -15,5 +17,5 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
- let db= firebase.firestore(); // Conectamos firebase con firestore
- export default db
+//  let db= firebase.firestore(); // Conectamos firebase con firestore
+ export default firebase;
