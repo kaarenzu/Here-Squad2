@@ -106,7 +106,8 @@ class Map extends React.Component {
         return (
         <div>
             <Routing 
-            map={this.state.map}/>
+            map={this.state.map}
+            center={this.state.center}/>
             <div ref={this.mapRef} style={{ height: "1000px" }} />;
         </div>
         )
