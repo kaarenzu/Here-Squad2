@@ -28,17 +28,20 @@ class LoginView extends React.Component {
     if (!this.state.isActive === this.state.isNavbar) {
       return (
         <Fragment>
-          <div className="containe">
+          <div className="containerWelcome">
             <img
-              src="https://github.com/kaarenzu/Here-Squad2/blob/master/src/Imagenes/logo.png?raw=true"
+              src={require("../Imagenes/logo.png")}
               className="logo" />
-            <h5>Planifica tus viajes, siéntete seguro Move Calm te acompaña </h5>
+            <div className="divTextWelcome">
+              <h5 className="titleWelcome">Planifica tus viajes, siéntete seguro</h5>
+              <h5 className="titleWelcome"><span className="spanWelcome">Move Calm</span> te acompaña </h5>
+            </div>
             {/* Con este boton cambio el estado a falso */}
             <button type="button" onClick={this.handleToggleClick}
-              className="btn btn-outline-info lg"
+              className="btnWelcome"
               id="crearCuenta">{this.state.isActive ? 'Crear una cuenta' : 'Crear cuenta'}
             </button>
-            <button type="button" className="btn btn-outline-info lg"
+            <button type="button" className="btnWelcome"
               onClick={this.handleClick} id="iniciarSesion">{this.state.isNavbar ? 'Iniciar Sesión' : 'false'}
             </button>
           </div>

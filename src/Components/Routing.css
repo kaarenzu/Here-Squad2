@@ -12,7 +12,7 @@
     border-radius: 3px;
 }
 
-.input {
+.inputRouting {
     padding: 0.4em;
     margin: 0.5em;
     background-color: #E8F2F6;
@@ -36,6 +36,7 @@
 
 .buttonRoute {
     width: 1.5em;
+    height: 1.5em;
     background-color: #D09683;
     padding: 0.25em;
     border-radius: 100%;

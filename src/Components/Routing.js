@@ -286,7 +286,7 @@ class Routing extends Component {
                     type="text"
                     placeholder="Tu dirección"
                     ref={this.inputStarting} 
-                    className='input inputStarting'/>
+                    className='inputRouting inputStarting'/>
                 
                     {this.state.isLoading ? 
                     <div className='list listStarting'ref={this.autosuggestDiv}> 
@@ -302,7 +302,7 @@ class Routing extends Component {
                     type="text"
                     placeholder="Tu destino"
                     ref={this.inputEnding} 
-                    className='input inputEnding'/>
+                    className='inputRouting inputEnding'/>
                 
                     {this.state.isLoadingEnding ? 
                     <ul ref={this.autosuggestEndingDiv}>
