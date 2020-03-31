@@ -295,7 +295,7 @@ class Routing extends Component {
                     {this.state.isLoading ? 
                     <div className='list listStarting'ref={this.autosuggestDiv}> 
                         {this.state.autosuggestion.items.map(direction => {
-                            return <li onClick={(e) => this.handleClickAutosuggest(e, direction.position.lat, direction.position.lng)}>{direction.address.label}</li>
+                            return <li className="elementAutosuggest" onClick={(e) => this.handleClickAutosuggest(e, direction.position.lat, direction.position.lng)}>{direction.address.label}</li>
                         })} 
                     </div>
                      : null}
@@ -309,10 +309,10 @@ class Routing extends Component {
                     className='inputRouting inputEnding'/>
                 
                     {this.state.isLoadingEnding ? 
-                    <ul ref={this.autosuggestEndingDiv}>
+                    <div className='list' ref={this.autosuggestEndingDiv}>
                     {this.state.autosuggestionEnding.items.map(direction => {
-                        return <li onClick={(e) => this.handleClickAutosuggestEnding(e, direction.position.lat, direction.position.lng)}>{direction.address.label}</li>
-                    })} </ul> 
+                        return <li className="elementAutosuggest" onClick={(e) => this.handleClickAutosuggestEnding(e, direction.position.lat, direction.position.lng)}>{direction.address.label}</li>
+                    })} </div> 
                     : null}
 
                 <img src={require('../img/search.png')} alt="Search button" className="buttonRoute" onClick={e => this.handleClickButton(e)}/>
