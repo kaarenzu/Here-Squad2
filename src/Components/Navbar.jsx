@@ -11,6 +11,7 @@ import {
 import Group from '../Imagenes/Group.png';
 import map from '../Imagenes/map.png';
 import social from '../Imagenes/social.png'
+import CrearPost from './Post.jsx'
 
 
 class Navbar extends React.Component {
@@ -33,6 +34,7 @@ class Navbar extends React.Component {
             <Map />
           </Route>
           <Route path="/Comunidad">
+            <CrearPost/>
             
           </Route>
         </div>
