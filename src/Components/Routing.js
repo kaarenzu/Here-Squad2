@@ -164,7 +164,7 @@ class Routing extends Component {
             })
         }
         // Fetch de las opciones de autosuggest
-        fetch(`https://autosuggest.search.hereapi.com/v1/autosuggest?at=${this.props.center.lat},${this.props.center.lng}&limit=5&q=${point0}+die&apiKey=cbHG8o5UmCH1wWYcAvvSXlUJeIDjr3CMPE9geRW7Gqw`)
+        fetch(`https://autosuggest.search.hereapi.com/v1/autosuggest?at=${this.props.center.lat},${this.props.center.lng}&limit=4&q=${point0}+die&apiKey=cbHG8o5UmCH1wWYcAvvSXlUJeIDjr3CMPE9geRW7Gqw`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
