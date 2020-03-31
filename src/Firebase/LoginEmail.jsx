@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import logo from '../Imagenes/logo.png';
 import '../Css/loginEmail.css';
-import firebase from './ConfigFirebase.jsx'
+import {firebase} from './ConfigFirebase.jsx'
 import IniciarSesion from '../Components/InicioSesion';
 
 

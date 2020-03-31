@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Css/navBar.css'
-import LoginView from './LoginView'
+// import LoginView from './LoginView'
 import Map from './Map.js'
 import {
   BrowserRouter as Router,
@@ -25,15 +25,15 @@ class Navbar extends React.Component {
                 <Link to="/Musica" className="text-white ">
                   <img alt="logo" src={Group} className="lo" />
                 </Link>
-                <Link to="/Login" className="text-white "><img alt="logo" src={social} className="lo" /></Link>
+                <Link to="/Comunidad" className="text-white "><img alt="logo" src={social} className="lo" /></Link>
                 {/* <Link to="/Login" className="text-white "><li>Perfil</li></Link> */}
             </nav>
 
           <Route exact path="/">
             <Map />
           </Route>
-          <Route path="/Login">
-            <LoginView />
+          <Route path="/Comunidad">
+            
           </Route>
         </div>
       </Router>

@@ -1,6 +1,6 @@
 /* eslint-disable no-this-before-super */
 import React from 'react';
-import firebase from './ConfigFirebase.jsx'
+import {firebase} from './ConfigFirebase.jsx'
 
 class LoginGoogle extends React.Component{
   constructor(props){

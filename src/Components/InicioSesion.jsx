@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import logo from '../Imagenes/logo.png';
 import '../Css/inicioSesion.css'
-import firebase from '../Firebase/ConfigFirebase.jsx'
+import {firebase} from '../Firebase/ConfigFirebase.jsx'
 import Navbar from './Navbar.jsx'
 
 class IniciarSesion extends React.Component {
