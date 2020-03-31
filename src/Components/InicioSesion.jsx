@@ -50,16 +50,14 @@ class IniciarSesion extends React.Component {
             alt="logo"
             src={logo}
             className="logoSesion" />
-          <h5 className="h5">Bienvenido otra vez</h5>
-          <div className="contInput">
-            <input type="text" className="input" placeholder="Correo electronico"
+          <h5 className="titleLogIn">¡Bienvenido de vuelta!</h5>
+          <input type="email" className="inputLogIn" id="inputMailLogIn" placeholder="Correo electronico"
               value={this.state.email} onChange={this.handleEmail} />
-            <input type="text" className="input" placeholder="Contraseña"
+          <input type="password" className="inputLogIn" id="inputPassLogIn" placeholder="Contraseña"
               value={this.state.password} onChange={this.handlePassword} />
-          </div>
-          <button type="button" className="btn btn-outline-info lg" id="registrar"
+          <button type="button" className="btnLogIn" id="registrar"
             onClick={this.signInUser}>Iniciar mi sesion</button>
-
+          <p className="backToRegister">¿No tienes cuenta? Regístrate</p>
         </div>
       )
  }

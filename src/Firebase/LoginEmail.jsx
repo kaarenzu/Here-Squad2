@@ -59,23 +59,21 @@ class LoginEmail extends React.Component {
   render() {
     if(this.state.estado){
       return (
-        <div className="containerPer">
+        <div className="containerSignUp">
           <img
             alt="logo"
             src={logo}
             className="logoEmail" />
-            <h5 className="h5">Crea una cuenta para acceder a Move Calm</h5>
-          <div className="contInput">
-            <input type="text" className="input" placeholder="Nombre de usuario"
+            <h5 className="titleSignUp">Crea una cuenta para acceder a <span className="moveCalmText">Move Calm</span></h5>
+            <input type="text" className="inputSignUp" id="inputUserSignUp" placeholder="Nombre de usuario"
               value={this.state.name} onChange={this.handleName} />
-            <input type="text" className="input" placeholder="Correo electronico"
+            <input type="email" className="inputSignUp" id="inputMailSignUp" placeholder="Correo electronico"
               value={this.state.email} onChange={this.handleEmail} />
-            <input type="text" className="input" placeholder="Contraseña"
+            <input type="password" className="inputSignUp" id="inputPassSignUp" placeholder="Contraseña"
               value={this.state.password} onChange={this.handlePassword} />
-          </div>
-            <button type="submit" className="btn btn-outline-info lg" id="registrar" 
-              onClick={this.singUpNewUser}>Registrarme
-            </button>
+            <button type="submit" className="btnSignUp" id="registrar" 
+              onClick={this.singUpNewUser}>Registrarme</button>
+            <p className="backToLogIn">¿Ya tienes cuenta? Inicia sesión</p>
         </div>
       )
     }

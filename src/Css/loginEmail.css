@@ -1,4 +1,80 @@
-@media (min-width:200px) and (max-width:800px){
+.containerSignUp {
+  max-width: 500px;
+  margin: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.moveCalmText {
+  font-family: 'Bad Script', cursive;
+}
+
+.inputSignUp {
+  background: #D09683;
+  border-radius: 4px;
+  font-family: 'Open Sans';
+  color: #fff;
+  border: none;
+  margin: 0.7em 0 0.7em 0;
+  width: 80%;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  padding-left:35px;
+}
+
+.inputSignUp::placeholder {
+  color: #fff;
+
+}
+
+.titleSignUp {
+  font-family: 'Open Sans', sans-serif;
+  color: #41729F;
+  text-align: center;
+  font-size: 19px;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+}
+
+#inputUserSignUp {
+  background: url(../img/user.png) no-repeat scroll 7px #D09683;
+}
+
+#inputMailSignUp {
+  background: url(../img/mail.png) no-repeat scroll 7px #D09683;
+}
+
+#inputPassSignUp {
+  background: url(../img/Password.png) no-repeat scroll 7px #D09683;
+}
+
+.btnSignUp {
+  width: 60%;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+  border: 2px solid #D09683;
+  box-sizing: border-box;
+  border-radius: 6px;
+  color: #D09683;
+  background-color: #E8F2F6;
+}
+
+.backToLogIn {
+  font-family: 'Open Sans', sans-serif;
+  color: #41729F;
+  text-align: center;
+  font-size: 13px;
+  margin-top: 1em;
+}
+
+
+
+
+
+/* @media (min-width:200px) and (max-width:800px){
   .containerPer{
     display: inline-grid;
     margin-left: 17%;
@@ -34,4 +110,4 @@
     border-color: rgba(194, 104, 19, 0.822);
     color: rgba(194, 104, 19, 0.822);
   }
-}
+} */

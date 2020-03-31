@@ -1,34 +1,63 @@
-@media (min-width:200px) and (max-width:800px){
-  .containerPer{
-    display: inline-grid;
-    margin-left: 17%;
-    background-color: rgba(238, 244, 247, 0.473);
-    margin-top:10%;
-    width:68%;
-  }
-  .logoSesion{
-    margin-left: 11%
-  }
-  .h5{
-    color: steelblue;
-    text-align: center;
-    margin-top: 12%;
-  }
-  .contInput {
-    margin-top:9%;
-  }
-  
-  .input {
-    width: 71%;
-    text-align: center;   
-    background-color:rgba(194, 104, 19, 0.822);   
-    color: white;
-    margin-left: 13%;
-    margin-top:1%;
-  }
-  #registrar{
-    width: 48%;
-    margin-top: 7%;
-    margin-left: 25%;
-  }
+.containerPer {
+  max-width: 500px;
+  margin: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputLogIn {
+  background: #D09683;
+  border-radius: 4px;
+  font-family: 'Open Sans';
+  color: #fff;
+  border: none;
+  margin: 0.7em 0 0.7em 0;
+  width: 80%;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  padding-left:35px;
+}
+
+.inputLogIn::placeholder {
+  color: #fff;
+
+}
+
+.titleLogIn {
+  font-family: 'Open Sans', sans-serif;
+  color: #41729F;
+  text-align: center;
+  font-size: 19px;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+}
+
+#inputMailLogIn {
+  background: url(../img/mail.png) no-repeat scroll 7px #D09683;
+}
+
+#inputPassLogIn {
+  background: url(../img/Password.png) no-repeat scroll 7px #D09683;
+}
+
+.btnLogIn {
+  width: 60%;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+  border: 2px solid #D09683;
+  box-sizing: border-box;
+  border-radius: 6px;
+  color: #D09683;
+  background-color: #E8F2F6;
+}
+
+.backToRegister {
+  font-family: 'Open Sans', sans-serif;
+  color: #41729F;
+  text-align: center;
+  font-size: 13px;
+  margin-top: 1em;
 }

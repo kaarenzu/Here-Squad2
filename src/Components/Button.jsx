@@ -5,8 +5,7 @@ class Button extends React.Component {
     const styles = {
       color: this.props.color,
       background: this.props.background,
-      id: this.props.id
-      
+      id: this.props.id   
     }
     return (
       <button style={styles}>Crear Usuario</button>

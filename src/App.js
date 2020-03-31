@@ -15,7 +15,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="divTotal">
           {/* <Map /> */}
           {/* <Navbar /> */}
           <LoginView/>

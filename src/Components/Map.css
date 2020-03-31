@@ -1,5 +1,10 @@
 .map {
     display: flex;
-    height: 33em;
+    height: 50em;
+    width: 100%;
+}
+
+.divMap {
+    width: 100%;
 }
 
