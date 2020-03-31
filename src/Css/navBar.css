@@ -4,7 +4,7 @@
 
 .containerNavBar {
   width: 100%;
-  z-index: 300;
+  z-index: 100;
   position: fixed;
   bottom: 0;
   display: flex;
