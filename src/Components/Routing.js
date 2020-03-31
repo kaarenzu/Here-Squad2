@@ -216,7 +216,9 @@ class Routing extends Component {
         console.log(choice)
         this.inputStarting.current.value = choice
         this.setState({
-            startingPoint: `${lat},${lng}`
+            startingPoint: `${lat},${lng}`,
+            autosuggestion: null,
+            isLoading: false,
         })
         console.log('Estado del Autosuggest del starting', this.state.startingPoint)
     }
@@ -227,7 +229,9 @@ class Routing extends Component {
         console.log(choice)
         this.inputEnding.current.value = choice
         this.setState({
-            endingPoint: `${lat},${lng}`
+            endingPoint: `${lat},${lng}`,
+            autosuggestionEnding: null,
+            isLoadingEnding: false,
         })
         console.log('Estado del Autosuggest del ending', this.state.endingPoint)
     }

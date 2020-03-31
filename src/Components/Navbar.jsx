@@ -17,10 +17,8 @@ class Navbar extends React.Component {
   render() {
     return (
       <Router>
-        <div>
-          <div className="container">
-            <nav className="navbar navbar-default navbar-fixed-bottom" id="navbar" role="navigation">
-              <ul>
+        <div className="divFromRouter">
+          <nav className="containerNavBar">
                 <Link to="/" className="text-white ">
                   <img alt="logo" src={map} className="lo" />
                 </Link>
@@ -29,10 +27,8 @@ class Navbar extends React.Component {
                 </Link>
                 <Link to="/Login" className="text-white "><img alt="logo" src={social} className="lo" /></Link>
                 {/* <Link to="/Login" className="text-white "><li>Perfil</li></Link> */}
-              </ul>
             </nav>
-            
-          </div>
+
           <Route exact path="/">
             <Map />
           </Route>

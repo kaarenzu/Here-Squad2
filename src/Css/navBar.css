@@ -1,29 +1,15 @@
-/* @media (min-width:200px) and (max-width:1200px){
-*{
-  margin:0%;
-  padding: 0%;
+.divFromRouter {
+  width: 100%;
 }
-body{
-  padding:70px
-}
-#navbar {
-  background-color: rgba(11, 68, 240, 0.185);
-  width:100%
-}
-ul{
-  display: contents;
-list-style: none;
-color: seashell;
-}
-a {
-  color:white;
-  width: 10%;
-}
-.container{
-  max-width: 754px;
-  width: 150%;
-  margin-left: -9%;
-  margin-top: -11%;
 
+.containerNavBar {
+  width: 100%;
+  z-index: 300;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  background-color: #E8F2F6;
 }
-} */

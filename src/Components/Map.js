@@ -17,7 +17,6 @@ class Map extends React.Component {
 
     }
 
-
     componentDidMount() {
         const H = window.H; // Para que funcione en React hay que ponerle window a todos los "H"
         // Pasas tu Key
@@ -105,7 +104,7 @@ class Map extends React.Component {
 
     render() {
         return (
-        <div>
+        <div className='divMap'>
             <Routing 
             map={this.state.map}
             center={this.state.center}/>
