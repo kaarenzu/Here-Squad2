@@ -86,7 +86,7 @@
     margin-left: 11%
   }
   .h5{
-    color: steelblue;
+    color: rgba(10, 98, 180, 0.712);
     text-align: center;
     margin-top: 12%;
     margin-left: 3%;
@@ -98,7 +98,7 @@
   .input {
     width: 71%;
     text-align: center;   
-    background-color: rgba(18, 18, 128, 0.822);   
+    background-color:rgba(194, 104, 19, 0.822);   
     color: white;
     margin-left: 13%;
     margin-top:1%;
@@ -107,5 +107,7 @@
     width: 48%;
     margin-top: 7%;
     margin-left: 23%;
+    border-color: rgba(194, 104, 19, 0.822);
+    color: rgba(194, 104, 19, 0.822);
   }
 } */
