@@ -36,19 +36,33 @@
 .iconBottomBar {
   height: 1.8em;
 }
+
+.modal-dialog {
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+
 .modal-content{
   background: linear-gradient(204.57deg, #CDDDF4 3.26%, #CDBAFA 100%);
+  width: 50% !important;
 }
 .btn{
-  color:#41729F;
-  font-size: 150%;
-  font-family: 'Open Sans', sans-serif;
+  color:#41729F !important;
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 16px;
+  font-weight: 700;
 }
 .modal-header{
-  border-color:#41729F ;
+  padding: 0.3em !important;
 }
+
+.modal-body {
+  padding: 0.3em !important;
+}
+
 .close{
   color:#41729F;
   padding: 0rem 1rem;
     margin: -1rem -1rem -1rem auto;
 }
+

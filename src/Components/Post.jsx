@@ -7,6 +7,7 @@ import App from '../App.js'
 class CrearPost extends React.Component {
   constructor() {
     super();
+    this.textAreaPost = React.createRef()
     this.state = {
       post: [],
       datatime: new Date(),
@@ -14,27 +15,15 @@ class CrearPost extends React.Component {
       name: [],
       estado: true
     }
-
     this.handlePost = this.handlePost.bind(this);
     this.publicarPost = this.publicarPost.bind(this);
     this.signOut = this.signOut.bind(this);
-
-  }
-  signOut() {
-    firebase.auth().signOut()
-      .then(() => {
-        this.setState({ estado: false })
-        console.log('Saliendo...');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   }
 
   handlePost(event) {
     this.setState({ post: event.target.value });
-    console.log(this.state.post, 'estoy tomando el post')
   }
+
   publicarPost() {
     const user = firebase.auth().currentUser;
     db.collection('post').add({
@@ -44,28 +33,24 @@ class CrearPost extends React.Component {
       userID: user.uid
     })
       .then((postNew) => {
-
         const collecionPost = db.collection('post');
         const collecionPostOrdenada = collecionPost.orderBy('datatime', 'desc');
         collecionPostOrdenada.get().then((element) => {
           const postNew = element.docs.map(doc => doc.data());
           console.log(postNew, 'postNew')
           this.setState({
+            mensaje: [],
             mostrarPost: postNew,
             name: user.displayName
-
-
           })
-
+          this.textAreaPost.current.value = ""
         })
-      }
-      )
-
+      })
       .catch((error) => {
         console.error('Error adding document: ', error);
       });
-
   }
+
   componentDidMount() {
     const user = firebase.auth().currentUser;
     const collecionPost = db.collection('post');
@@ -89,27 +74,23 @@ class CrearPost extends React.Component {
             <header className="headerCommunity">
               <h1 className="headerText textCom">Comunidad Move Calm</h1>
               <h6 className="headerText subHeader">En Move Calm no estás solo:</h6>
-              {/* <button type="submit" className="btn"
-                onClick={this.signOut}>Cerrar Sesion</button> */}
             </header>
             <div className="publicarPost">
-
-              <textarea type="text" className="textAreaPost" id="post" placeholder="Escribe tu comentario aquí"
+              <textarea ref={this.textAreaPost} type="text" className="textAreaPost" id="post" placeholder="Escribe tu comentario aquí"
                 value={this.state.post} onChange={this.handlePost} />
               <div className="divOfSend">
                 <img src={require('../img/share.png')} alt="Send button" className="buttonSend"
                   onClick={this.publicarPost}/>
               </div>
-
             </div>
 
             <div className="containerPublic">
               {this.state.mostrarPost.map((element, key) => {
                 return (
-                      <div className="postArea" key={key}>
-                        <p className="textPost textUser">{element.name + ":"}</p>
-                        <p className="textPost textMessage">{element.mensaje}</p> 
-                      </div>
+                  <div className="postArea" key={key}>
+                    <p className="textPost textUser">{element.name + ":"}</p>
+                    <p className="textPost textMessage">{element.mensaje}</p> 
+                  </div>
                 )
               })
               }
@@ -121,11 +102,8 @@ class CrearPost extends React.Component {
     return (
       <Fragment>
         {this.state.estado ? null : <App />}
-
       </Fragment>
     )
-
-
   }
 }
 export default CrearPost;
