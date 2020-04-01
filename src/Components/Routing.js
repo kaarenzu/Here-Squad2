@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Routing.css'
 
+
 class Routing extends Component {
     constructor(props) {
         super(props)
@@ -15,97 +16,11 @@ class Routing extends Component {
             autosuggestionEnding: null,
             isLoading: false,
             isLoadingEnding: false,
+            transportMode: 'publicTransport'
         }
     }
 
-    // La función que calcula las rutas.
-    calculateRoute(point0, point1) {
-        console.log('startingPoint', this.state.startingPoint)
-        console.log('endingPoint', this.state.endingPoint)
-        const H = window.H; // Para que funcione en React hay que ponerle window a todos los "H"
-        // Pasas tu Key
-        const platform = new H.service.Platform({
-            apikey: "cbHG8o5UmCH1wWYcAvvSXlUJeIDjr3CMPE9geRW7Gqw"
-        });
-        const map = this.props.map
-
-        console.log('point1', point0)
-        console.log('point2', point1)
-        // Routing
-        var routingParameters = {
-            // The routing mode:
-            'mode': 'fastest;publicTransport',
-            // The start point of the route:
-            'waypoint0': point0,
-            // The end point of the route:
-            'waypoint1': point1,
-            // To retrieve the shape of the route we choose the route
-            // representation mode 'display'
-            'representation': 'display'
-        };
-
-        // Define a callback function to process the routing response:
-        var onResult = function (result) {
-            var route,
-                routeShape,
-                startPoint,
-                endPoint,
-                linestring;
-            if (result.response.route) {
-                // Pick the first route from the response:
-                route = result.response.route[0];
-                // Pick the route's shape:
-                routeShape = route.shape;
-
-                // Create a linestring to use as a point source for the route line
-                linestring = new H.geo.LineString();
-
-                // Push all the points in the shape into the linestring:
-                routeShape.forEach(function (point) {
-                    var parts = point.split(',');
-                    linestring.pushLatLngAlt(parts[0], parts[1]);
-                });
-
-                // Retrieve the mapped positions of the requested waypoints:
-                startPoint = route.waypoint[0].mappedPosition;
-                endPoint = route.waypoint[1].mappedPosition;
-
-                // Create a polyline to display the route:
-                var routeLine = new H.map.Polyline(linestring, {
-                    style: { strokeColor: 'blue', lineWidth: 3 }
-                });
-
-                // Create a marker for the start point:
-                var startMarker = new H.map.Marker({
-                    lat: startPoint.latitude,
-                    lng: startPoint.longitude
-                });
-
-                // Create a marker for the end point:
-                var endMarker = new H.map.Marker({
-                    lat: endPoint.latitude,
-                    lng: endPoint.longitude
-                });
-
-                // Add the route polyline and the two markers to the map:
-                map.addObjects([routeLine, startMarker, endMarker]);
-
-                // Set the map's viewport to make the whole route visible:
-                map.getViewModel().setLookAtData({ bounds: routeLine.getBoundingBox() });
-            }
-        };
-
-        // Get an instance of the routing service:
-        var router = platform.getRoutingService();
-
-        // Call calculateRoute() with the routing parameters,
-        // the callback and an error callback function (called if a
-        // communication error occurs):
-        router.calculateRoute(routingParameters, onResult,
-            function (error) {
-                alert(error.message);
-            });
-    }
+    
 
     // Guarda el punto de inicio en el estado
     setStartingPoint(point0) {
@@ -252,7 +167,7 @@ class Routing extends Component {
                 .then(address =>
                     this.setEndingPoint(address))
                 .then(() =>
-                    this.calculateRoute(this.state.startingPoint, this.state.endingPoint))
+                    this.props.calculateRoute(this.state.startingPoint, this.state.endingPoint, this.state.transportMode))
                 .catch(err =>
                     console.error(err))
 
@@ -262,7 +177,7 @@ class Routing extends Component {
                     .then(address =>
                         this.setStartingPoint(address))
                     .then(() =>
-                        this.calculateRoute(this.state.startingPoint, this.state.endingPoint))
+                        this.props.calculateRoute(this.state.startingPoint, this.state.endingPoint, this.state.transportMode))
                     .catch(err =>
                         console.error(err))
             } else if (this.state.endingPoint === null) {
@@ -271,13 +186,20 @@ class Routing extends Component {
                     .then(address =>
                         this.setEndingPoint(address))
                     .then(() =>
-                        this.calculateRoute(this.state.startingPoint, this.state.endingPoint))
+                        this.props.calculateRoute(this.state.startingPoint, this.state.endingPoint, this.state.transportMode))
                     .catch(err =>
                         console.error(err))
             }
         } else {
-            this.calculateRoute(this.state.startingPoint, this.state.endingPoint)
+            this.props.calculateRoute(this.state.startingPoint, this.state.endingPoint, this.state.transportMode)
         }
+    }
+
+    handleChangeRadio = e => {
+        const transport = e.target.value
+        this.setState({
+            transportMode: transport
+        })
     }
 
 
@@ -314,9 +236,37 @@ class Routing extends Component {
                         return <li className="elementAutosuggest" onClick={(e) => this.handleClickAutosuggestEnding(e, direction.position.lat, direction.position.lng)}>{direction.address.label}</li>
                     })} </div> 
                     : null}
-
-                <img src={require('../img/search.png')} alt="Search button" className="buttonRoute" onClick={e => this.handleClickButton(e)}/>
-                {/* <button alt="Search button" className="buttonRoute" onClick={e => this.handleClickButton(e)}>Buscar ruta</button> */}
+                <div className="divRadioAndButton">
+                    <div className="containerRadioBtn" onChange={e => this.handleChangeRadio(e)}>
+                        <form className="rating-form">
+                            <label for="super-happy">
+                                <input type="radio" name="RadioOption" className="super-happy" id="super-happy" value="publicTransport" required defaultChecked/>
+                                <img className="svg" src={require('../img/bus.png')} alt="Public Transport"/>
+                            </label>
+                            <label for="happy">
+                                <input type="radio" name="RadioOption" className="happy" id="happy" value="car" required/>
+                                <img className="svg" src={require('../img/pickup-car.png')} alt="Car"/>
+                            </label>
+                            <label for="neutral">
+                                <input type="radio" name="RadioOption" className="neutral" id="neutral" value="pedestrian" required/>
+                                <img className="svg" src={require('../img/walk.png')} alt="Walking"/>
+                            </label>
+                        </form>
+                        {/* <label className="radioBtn">
+                            <input className="radioCircle" type="radio" name="RadioOption" value="publicTransport" required defaultChecked/>
+                            <img src={require('../img/bus.png')} alt="Public Transport" className="imageRadioButton"/>
+                        </label>
+                        <label className="radioBtn">
+                            <input className="radioCircle" type="radio" name="RadioOption" value="car" required />
+                            <img src={require('../img/pickup-car.png')} alt="Car" className="imageRadioButton"/>
+                        </label>
+                        <label className="radioBtn">
+                            <input className="radioCircle" type="radio" name="RadioOption" value="pedestrian" required />
+                            <img src={require('../img/walk.png')} alt="Walking" className="imageRadioButton"/>
+                        </label> */}
+                    </div>
+                    <img src={require('../img/search.png')} alt="Search button" className="buttonRoute" onClick={e => this.handleClickButton(e)}/>
+                </div>
             </div>
         );
     }

@@ -74,3 +74,75 @@
     border-bottom: #41729F 1px solid;
     padding: 0.2em 0.5em;
 }
+
+.divRadioAndButton {
+    display: flex;
+    justify-content: space-between;
+}
+
+.radioCircle {
+ background: #41729F;
+}
+
+.imageRadioButton {
+    margin-left: 0.1em;
+    width: 1.3em;
+}
+
+.radioBtn {
+    margin: 0 0.4em 0 0.4em;
+}
+
+.containerRadioBtn {
+    margin-left: 1em;
+}
+
+
+
+
+.svg {
+	/* filter: invert(99%) sepia(0%) saturate(713%) hue-rotate(32deg) brightness(115%) contrast(100%); */
+	height: 1.3em;
+	width: 1.3em;
+	margin: 0.5em;
+}
+
+#radios label {
+	position: relative;
+}
+
+input[type="radio"] {
+	position: absolute;
+	opacity: 0;
+}
+
+input[type="radio"] + .svg {
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+input + .svg {
+	cursor: pointer;
+}
+
+input[class="super-happy"]:hover + .svg,
+input[class="super-happy"]:checked + .svg,
+input[class="super-happy"]:focus + .svg {
+	filter: invert(41%) sepia(76%) saturate(372%) hue-rotate(167deg) brightness(85%) contrast(86%);;
+}
+
+input[class="happy"]:hover + .svg,
+input[class="happy"]:checked + .svg,
+input[class="happy"]:focus + .svg {
+	filter: invert(41%) sepia(76%) saturate(372%) hue-rotate(167deg) brightness(85%) contrast(86%);;
+}
+
+input[class="neutral"]:hover + .svg,
+input[class="neutral"]:checked + .svg,
+input[class="neutral"]:focus + .svg {
+	filter: invert(41%) sepia(76%) saturate(372%) hue-rotate(167deg) brightness(85%) contrast(86%);;
+}
+
+label {
+    margin-bottom: 0;
+}
