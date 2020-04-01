@@ -36,3 +36,17 @@
 .iconBottomBar {
   height: 1.8em;
 }
+.modal-content{
+  background-color: #D09683;
+}
+.btn{
+  color:#41729F;
+  font-size: 150%;
+  font-family: 'Open Sans', sans-serif;
+}
+.modal-header{
+  border-color:#41729F ;
+}
+.close{
+  color:#41729F
+}
