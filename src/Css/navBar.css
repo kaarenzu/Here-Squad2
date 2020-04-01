@@ -37,7 +37,7 @@
   height: 1.8em;
 }
 .modal-content{
-  background-color: #D09683;
+  background: linear-gradient(204.57deg, #CDDDF4 3.26%, #CDBAFA 100%);
 }
 .btn{
   color:#41729F;
@@ -48,5 +48,7 @@
   border-color:#41729F ;
 }
 .close{
-  color:#41729F
+  color:#41729F;
+  padding: 0rem 1rem;
+    margin: -1rem -1rem -1rem auto;
 }
