@@ -252,18 +252,6 @@ class Routing extends Component {
                                 <img className="svg" src={require('../img/walk.png')} alt="Walking"/>
                             </label>
                         </form>
-                        {/* <label className="radioBtn">
-                            <input className="radioCircle" type="radio" name="RadioOption" value="publicTransport" required defaultChecked/>
-                            <img src={require('../img/bus.png')} alt="Public Transport" className="imageRadioButton"/>
-                        </label>
-                        <label className="radioBtn">
-                            <input className="radioCircle" type="radio" name="RadioOption" value="car" required />
-                            <img src={require('../img/pickup-car.png')} alt="Car" className="imageRadioButton"/>
-                        </label>
-                        <label className="radioBtn">
-                            <input className="radioCircle" type="radio" name="RadioOption" value="pedestrian" required />
-                            <img src={require('../img/walk.png')} alt="Walking" className="imageRadioButton"/>
-                        </label> */}
                     </div>
                     <img src={require('../img/search.png')} alt="Search button" className="buttonRoute" onClick={e => this.handleClickButton(e)}/>
                 </div>

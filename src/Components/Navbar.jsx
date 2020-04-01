@@ -53,7 +53,6 @@ class Navbar extends React.Component {
                         <button type="submit" className="btn" id=""
                           onClick={this.signOut} data-dismiss="modal">Cerrar sesión</button>
                       </div>
-
                     </div>
                   </div>
                 </div>

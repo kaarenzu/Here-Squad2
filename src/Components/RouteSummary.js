@@ -13,18 +13,17 @@ class RouteSummary extends Component {
     render() {
         return (
             <div>
+
                 {this.props.isLoadingInstructions &&
-
-                    <div className="divInstructions">
-                        <ul className="ulInstructions"> {
-                            this.props.instructions.map(maneuver => {
-                                return (
-                                    <li className="liInstructions" dangerouslySetInnerHTML={this.makeHTML(maneuver.instruction)}></li>)
-                            })}
-                        </ul>
-
+                    <div className="divInstructions"> 
+                        <div className="divTopSummary" >
+                            <img src={require('../img/Bookmark.png')} alt="Save Route button" className="buttonSave" />
+                        </div>
+                        {this.props.instructions.map(maneuver => {
+                            return (
+                                <li className="liInstructions" dangerouslySetInnerHTML={this.makeHTML(maneuver.instruction)}></li>)
+                        })}
                     </div>
-
                 }
             </div>
 

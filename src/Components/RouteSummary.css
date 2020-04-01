@@ -4,11 +4,9 @@
     background-color: #E8F2F6;
     height: 10em;
     padding: 0.5em 0.8em;
-}
-
-.ulInstructions {
     overflow:scroll;
 }
+
 
 .liInstructions {
     font-family: 'Open Sans', sans-serif;
@@ -34,4 +32,13 @@
 .street {
     color: #9b72b5;
     font-weight: 700;
+}
+
+.buttonSave {
+    height: 2em;
+}
+
+.divTopSummary {
+    display: flex;
+    justify-content: flex-end;
 }
