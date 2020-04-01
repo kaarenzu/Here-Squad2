@@ -1,16 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import './App.css';
-import Map from './Components/Map'
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './Components/Navbar.jsx';
-import {firebase} from './Firebase/ConfigFirebase.jsx'
+import { firebase } from './Firebase/ConfigFirebase.jsx'
 import LoginView from './Components/LoginView'
 import {
   BrowserRouter as Router,
-  Route,
-  Link
-} from "react-router-dom"; // Importamos los componentes de la libreria con los que haremos el router
+} from "react-router-dom"; 
 
 class App extends React.Component {
   constructor(props) {
@@ -21,37 +17,36 @@ class App extends React.Component {
   componentWillMount() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
+        // Si hay una inicion abierta cambia el estado del componente a falso.
         this.setState({ estado: false })
         console.log('Existe usuario activo');
-        // User is signed in.
         const displayName = user.displayName;
-        //  console.log(user);
+        console.log(user.displayName, 'mi nombre')
         const email = user.email;
+        console.log(email, 'holaa');
         const emailVerified = user.emailVerified;
         const photoURL = user.photoURL;
         const isAnonymous = user.isAnonymous;
         const uid = user.uid;
+        console.log(uid, 'uid');
         const providerData = user.providerData;
-        // ...
       } else {
-
         // User is signed out.
+        this.setState({estado: true})
         console.log('No existe usuario activo');
-        // ...
       }
     });
   }
+ 
   render() {
     return (
       <Router>
         <div className="divTotal">
+          {/* Si el estado del componente es verdadero muestra LoginView si es falso Navbar */}
           {this.state.estado ? <LoginView /> : <Navbar />}
-          {/* <Map /> */}
-          {/* <Navbar /> */}
         </div>
       </Router>
     )
   }
 }
-
 export default App;

@@ -1,0 +1,66 @@
+header{
+  background-color: rgba(199, 129, 240, 0.548);
+  text-align: center;
+  width:100%;
+}
+.textCom{
+  font-family: 'Open Sans', sans-serif;
+  color: #41729F;
+  text-align: center;
+  font-size: 29px;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+}
+.containerTotal{
+  display: flex;
+  justify-content: center;
+}
+.containerPost{
+  margin: 0em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.containerPublic{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0%;
+  margin-right: 12%;
+}
+.textArea{
+  width: 200%;
+  height: 101px;
+  text-align: center;
+  background-color: rgba(199, 129, 240, 0.548);
+  border-radius: 11px;
+  font-family: 'Open Sans', sans-serif;
+}
+.publicarPost{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+.btnPost{
+  width: 60%;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+  border: 2px solid #D09683;
+  box-sizing: border-box;
+  border-radius: 6px;
+  color: #ffffff;
+  background-color:#D09683 ;
+}
+.post{
+  width: 148%;
+  height: 46px;
+  text-align: center;
+  border-radius: 2px;
+}

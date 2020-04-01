@@ -2,7 +2,14 @@ import React, { Fragment } from 'react';
 import logo from '../Imagenes/logo.png';
 import '../Css/inicioSesion.css'
 import {firebase} from '../Firebase/ConfigFirebase.jsx'
-import Navbar from './Navbar.jsx'
+// import Navbar from './Navbar.jsx';
+// import LoginView from './LoginView.jsx'
+import LoginEmail from '../Firebase/LoginEmail.jsx'
+import {
+  BrowserRouter as Router, 
+  Route, Link,
+} from "react-router-dom";
+
 
 class IniciarSesion extends React.Component {
   constructor() {
@@ -15,6 +22,10 @@ class IniciarSesion extends React.Component {
     this.handlePassword = this.handlePassword.bind(this);
     this.handleEmail = this.handleEmail.bind(this);
     this.signInUser = this.signInUser.bind(this);
+    this.backLog = this.backLog.bind(this);
+  }
+  backLog(){
+    this.setState({estado:false})
   }
   // Función que guarda el valor del input Email.
   handleEmail(event) {
@@ -45,7 +56,8 @@ class IniciarSesion extends React.Component {
   render() {
     if (this.state.estado) {
       return (
-        <div className="containerPer">
+        <Router>
+              <div className="containerPer">
           <img
             alt="logo"
             src={logo}
@@ -57,13 +69,15 @@ class IniciarSesion extends React.Component {
               value={this.state.password} onChange={this.handlePassword} />
           <button type="button" className="btnLogIn" id="registrar"
             onClick={this.signInUser}>Iniciar mi sesion</button>
-          <p className="backToRegister">¿No tienes cuenta? Regístrate</p>
+          <Link><p className="backToRegister" onClick={this.backLog}>¿No tienes cuenta? Regístrate</p></Link>
         </div>
+        </Router>
+    
       )
  }
     return (
       <Fragment>
-        {this.state.estado ? null : <Navbar/>}
+        {this.state.estado ? null : <LoginEmail/>}
       </Fragment>
     )
   }

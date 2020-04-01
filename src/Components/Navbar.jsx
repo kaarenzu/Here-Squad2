@@ -40,8 +40,8 @@ class Navbar extends React.Component {
             <Map />
           </Route>
           <Route path="/Comunidad">
-            <CrearPost/>
-            
+            <CrearPost />
+
           </Route>
         </div>
       </Router>
