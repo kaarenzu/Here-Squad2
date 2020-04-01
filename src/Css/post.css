@@ -1,17 +1,91 @@
-header{
-  background-color: rgba(199, 129, 240, 0.548);
+.headerCommunity{
+  background: linear-gradient(194.07deg, #CDDDF4 3.26%, #CDBAFA 100%);;
   text-align: center;
   width:100%;
+  padding: 0.7em 0 0.5em 0;
 }
-.textCom{
-  font-family: 'Open Sans', sans-serif;
+
+.headerText {
+  font-family: 'Sen', sans-serif;
   color: #41729F;
   text-align: center;
-  font-size: 29px;
-  margin-top: 1.5em;
-  margin-bottom: 1em;
 }
-.containerTotal{
+.textCom{
+  font-size: 25px;
+  padding-bottom: 0.5em;
+  margin-bottom: 0;
+}
+
+.subHeader {
+  font-size: 18px;
+}
+
+.containerTotal {
+  display: flex;
+  flex-direction: column;
+}
+
+.textAreaPost {
+  background: linear-gradient(202.46deg, #CDDDF4 3.26%, #CDBAFA 100%);
+  border: none;
+  border-radius: 5px;
+  width: 80%;
+  padding: 0.5em;
+  resize: none;
+  height: 5.5em;
+}
+
+.publicarPost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1em;
+}
+
+.buttonSend {
+  position: relative;
+  bottom: 30px;
+  left: 90%;
+}
+.divOfSend {
+  display: flex;
+  width: 75%;
+}
+
+.postArea {
+  width: 80%;
+  background: linear-gradient(204.57deg, #CDDDF4 3.26%, #CDBAFA 100%);
+  border-radius: 15px;
+  margin-bottom: 1em;
+  padding: 1em;
+}
+
+.divPost {
+  width: 80%;
+}
+
+.containerPublic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow:scroll;
+  padding-bottom: 3em;
+}
+
+.textPost {
+  font-family: 'Sen', sans-serif;
+  margin-bottom: 0;
+}
+
+.textUser {
+  font-weight: 700;
+}
+
+.textMessage {
+
+}
+
+/* .containerTotal{
   display: flex;
   justify-content: center;
 }
@@ -63,4 +137,4 @@ header{
   height: 46px;
   text-align: center;
   border-radius: 2px;
-}
+} */
