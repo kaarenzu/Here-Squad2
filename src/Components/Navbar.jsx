@@ -20,22 +20,22 @@ class Navbar extends React.Component {
       <Router>
         <div className="divFromRouter">
           <nav className="containerNavBar">
-                <Link to="/" className="text-white ">
-                  <img alt="logo" src={map} className="lo" />
-                </Link>
-                <Link to="/Musica" className="text-white ">
-                  <img alt="logo" src={Group} className="lo" />
-                </Link>
-                <Link to="/Comunidad" className="text-white "><img alt="logo" src={social} className="lo" /></Link>
-                {/* <Link to="/Login" className="text-white "><li>Perfil</li></Link> */}
-            </nav>
+            <Link to="/" className="text-white ">
+              <img alt="logo" src={map} className="lo" />
+            </Link>
+            <Link to="/Musica" className="text-white ">
+              <img alt="logo" src={Group} className="lo" />
+            </Link>
+            <Link to="/Comunidad" className="text-white "><img alt="logo" src={social} className="lo" /></Link>
+            {/* <Link to="/Login" className="text-white "><li>Perfil</li></Link> */}
+          </nav>
 
           <Route exact path="/">
             <Map />
           </Route>
           <Route path="/Comunidad">
-            <CrearPost/>
-            
+            <CrearPost />
+
           </Route>
         </div>
       </Router>
