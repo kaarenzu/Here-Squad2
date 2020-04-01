@@ -13,3 +13,26 @@
   padding-bottom: 0.5em;
   background-color: #E8F2F6;
 }
+
+.topBar {
+  height: 3em;
+  width: 100%;
+  background-color: #E8F2F6;
+  display: flex; 
+  justify-content: center;
+}
+
+.divIconsTopBar {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  align-items: center
+}
+
+.buttonsTopBar {
+  height: 1.5em;
+}
+
+.iconBottomBar {
+  height: 1.8em;
+}

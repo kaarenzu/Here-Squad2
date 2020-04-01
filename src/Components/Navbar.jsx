@@ -19,14 +19,20 @@ class Navbar extends React.Component {
     return (
       <Router>
         <div className="divFromRouter">
+          <nav className="topBar">
+            <div className="divIconsTopBar">
+              <img src={require('../img/question.png')} alt="Help button" className="buttonsTopBar"/>
+              <img src={require('../img/Vector.png')} alt="Options button" className="buttonsTopBar"/>
+            </div>
+          </nav>
           <nav className="containerNavBar">
                 <Link to="/" className="text-white ">
-                  <img alt="logo" src={map} className="lo" />
+                  <img alt="logo" src={map} className="iconBottomBar" />
                 </Link>
                 <Link to="/Musica" className="text-white ">
-                  <img alt="logo" src={Group} className="lo" />
+                  <img alt="logo" src={Group} className="iconBottomBar" />
                 </Link>
-                <Link to="/Comunidad" className="text-white "><img alt="logo" src={social} className="lo" /></Link>
+                <Link to="/Comunidad" className="text-white "><img alt="logo" src={social} className="iconBottomBar" /></Link>
                 {/* <Link to="/Login" className="text-white "><li>Perfil</li></Link> */}
             </nav>
 
