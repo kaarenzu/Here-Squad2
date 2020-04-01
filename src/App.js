@@ -20,7 +20,7 @@ class App extends React.Component {
         this.setState({ estado: false })
         console.log('Existe usuario activo');
         const displayName = user.displayName;
-        console.log(displayName, 'mi nombre')
+        console.log(user.displayName, 'mi nombre')
         const email = user.email;
         console.log(email, 'holaa');
         const emailVerified = user.emailVerified;
@@ -31,10 +31,12 @@ class App extends React.Component {
         const providerData = user.providerData;
       } else {
         // User is signed out.
+        this.setState({estado: true})
         console.log('No existe usuario activo');
       }
     });
   }
+ 
   render() {
     return (
       <Router>

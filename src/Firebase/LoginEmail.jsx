@@ -3,6 +3,11 @@ import logo from '../Imagenes/logo.png';
 import '../Css/loginEmail.css';
 import { firebase } from './ConfigFirebase.jsx'
 import IniciarSesion from '../Components/InicioSesion';
+import {
+  BrowserRouter as Router, 
+  Route, Link,
+} from "react-router-dom";
+// import App from '../App.js'
 
 
 class LoginEmail extends React.Component {
@@ -12,18 +17,26 @@ class LoginEmail extends React.Component {
       estado: true,
       name: '',
       email: '',
-      password: ''
+      password: '',
+      back: false
     }
     this.handleName = this.handleName.bind(this);
     this.handleEmail = this.handleEmail.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
     this.singUpNewUser = this.singUpNewUser.bind(this);
+    this.backLog = this.backLog.bind(this);
   }
-  // Función guarda el nombre.
+  backLog(){
+    this.setState({ estado: false });
+    console.log(this.state.back,'estado back')
+
+  }
+  // Función que guarda el nombre.
   handleName(event) {
     this.setState({ name: event.target.value });
     console.log(this.state.name, 'muestro mi nombre')
   }
+  
   // Función que guarda el email.
   handleEmail(event) {
     this.setState({ email: event.target.value });
@@ -47,6 +60,7 @@ class LoginEmail extends React.Component {
       })
       .catch((error) => {
         // Handle Errors here.
+        
         const errorCode = error.code;
         const errorMessage = error.message;
         if (errorCode === 'auth/weak-password') {
@@ -62,7 +76,8 @@ class LoginEmail extends React.Component {
     // Si el estado del componente es verdadero muestra esto
     if (this.state.estado) {
       return (
-        <div className="containerSignUp">
+        <Router>
+            <div className="containerSignUp">
           <img
             alt="logo"
             src={logo}
@@ -76,15 +91,19 @@ class LoginEmail extends React.Component {
             value={this.state.password} onChange={this.handlePassword} />
           <button type="submit" className="btnSignUp" id="registrar"
             onClick={this.singUpNewUser}>Registrarme</button>
-          <p className="backToLogIn">¿Ya tienes cuenta? Inicia sesión</p>
+          <Link to="/App" ><p className="backToLogIn"onClick={this.backLog}>¿Ya tienes cuenta? Inicia sesión</p></Link>
         </div>
+
+        </Router>
+      
       )
     }
     return (
       <Fragment>
         {/* Si el estado del componente es verdadero deja nulo, si es falso muestra Iniciar Sesion */}
-        {this.state.estado ? null : <IniciarSesion />}
-      </Fragment>
+        {this.state.estado ? null : <IniciarSesion />},
+        
+      </Fragment> 
     )
   }
 }
