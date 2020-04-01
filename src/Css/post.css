@@ -1,66 +1,86 @@
-header{
-  background-color: rgba(199, 129, 240, 0.548);
+.headerCommunity{
+  background: linear-gradient(194.07deg, #CDDDF4 3.26%, #CDBAFA 100%);;
   text-align: center;
   width:100%;
+  padding: 0.7em 0 0.5em 0;
 }
-.textCom{
-  font-family: 'Open Sans', sans-serif;
+
+.headerText {
+  font-family: 'Sen', sans-serif;
   color: #41729F;
   text-align: center;
-  font-size: 29px;
-  margin-top: 1.5em;
+}
+.textCom{
+  font-size: 25px;
+  padding-bottom: 0.5em;
+  margin-bottom: 0;
+}
+
+.subHeader {
+  font-size: 18px;
+}
+
+.containerTotal {
+  display: flex;
+  flex-direction: column;
+}
+
+.textAreaPost {
+  background: linear-gradient(202.46deg, #CDDDF4 3.26%, #CDBAFA 100%);
+  border: none;
+  border-radius: 5px;
+  width: 80%;
+  padding: 0.5em;
+  resize: none;
+  height: 5.5em;
+}
+
+.publicarPost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1em;
+}
+
+.buttonSend {
+  position: relative;
+  bottom: 30px;
+  left: 90%;
+}
+.divOfSend {
+  display: flex;
+  width: 75%;
+}
+
+.postArea {
+  width: 80%;
+  background: linear-gradient(204.57deg, #CDDDF4 3.26%, #CDBAFA 100%);
+  border-radius: 15px;
   margin-bottom: 1em;
+  padding: 1em;
 }
-.containerTotal{
-  display: flex;
-  justify-content: center;
+
+.divPost {
+  width: 80%;
 }
-.containerPost{
-  margin: 0em;
+
+.containerPublic {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100%;
+  overflow:scroll;
+  padding-bottom: 3em;
 }
-.containerPublic{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left: 0%;
-  margin-right: 12%;
+
+.textPost {
+  font-family: 'Sen', sans-serif;
+  margin-bottom: 0;
 }
-.textArea{
-  width: 200%;
-  height: 101px;
-  text-align: center;
-  background-color: rgba(199, 129, 240, 0.548);
-  border-radius: 11px;
-  font-family: 'Open Sans', sans-serif;
+
+.textUser {
+  font-weight: 700;
 }
-.publicarPost{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 15px;
-}
-.btnPost{
-  width: 60%;
-  font-family: 'Open Sans', sans-serif;
-  margin-top: 0.7em;
-  margin-bottom: 0.7em;
-  border: 2px solid #D09683;
-  box-sizing: border-box;
-  border-radius: 6px;
-  color: #ffffff;
-  background-color:#D09683 ;
-}
-.post{
-  width: 148%;
-  height: 46px;
-  text-align: center;
-  border-radius: 2px;
+
+.textMessage {
+
 }
