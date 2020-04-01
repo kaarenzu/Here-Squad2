@@ -13,7 +13,8 @@ class App extends React.Component {
     super(props);
     this.state = { estado: true }
   }
-  componentDidMount() {
+
+  componentWillMount() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         // Si hay una inicion abierta cambia el estado del componente a falso.
