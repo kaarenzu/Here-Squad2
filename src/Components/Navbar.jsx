@@ -43,14 +43,16 @@ class Navbar extends React.Component {
                 <a href="#Modal" role="button" data-toggle="modal">
                   <img src={require('../img/Vector.png')} alt="Options button" className="buttonsTopBar" />
                 </a>
-                <div id="Modal" class="modal fade">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
+                <div id="Modal" className="modal fade">
+                  <div className="modal-dialog">
+                    <div className="modal-content">
                       <div className="modal-header">
                         <button type="button" className="close" data-dismiss="modal" 
                         aria-hidden="true">&times;</button>
                       </div>
-                      <div class="modal-body">
+                      <div className="modal-body">
+                        <button type="submit" className="btn" id=""
+                             data-dismiss="modal">Mis rutas guardadas</button>
                         <button type="submit" className="btn" id=""
                           onClick={this.signOut} data-dismiss="modal">Cerrar sesión</button>
                       </div>
@@ -67,7 +69,6 @@ class Navbar extends React.Component {
                 <img alt="logo" src={Group} className="iconBottomBar" />
               </Link>
               <Link to="/Comunidad" className="text-white "><img alt="logo" src={social} className="iconBottomBar" /></Link>
-              {/* <Link to="/Login" className="text-white "><li>Perfil</li></Link> */}
             </nav>
 
             <Route exact path="/">

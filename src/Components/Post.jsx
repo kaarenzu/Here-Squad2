@@ -17,7 +17,6 @@ class CrearPost extends React.Component {
     }
     this.handlePost = this.handlePost.bind(this);
     this.publicarPost = this.publicarPost.bind(this);
-    this.signOut = this.signOut.bind(this);
   }
 
   handlePost(event) {
