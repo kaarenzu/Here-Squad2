@@ -21,7 +21,7 @@ class SavedRoutes extends Component {
         collectionFilterOrder.get().then((route) => {
           const routeNew = route.docs.map(doc => doc.data());
     
-          console.log(routeNew, 'routeNew')
+          console.log(routeNew, 'Rutas en el estado')
           this.setState({
             showRoutes: routeNew,
           })
@@ -48,9 +48,9 @@ class SavedRoutes extends Component {
                     <p className="waypointsSaved">Desde: <span class="tripPoint">{trip.startPoint}</span></p> 
                     <p className="waypointsSaved">Hasta: <span class="tripPoint">{trip.endPoint}</span></p>
                     <p className="waypointsSaved">Medio de transporte: 
-                    {trip.mode === "publicTransport" && <span class="tripPoint">Transporte público</span>}
-                    {trip.mode === "car" && <span class="tripPoint">Auto</span>}
-                    {trip.mode === "pedestrian" && <span class="tripPoint">Caminando</span>}
+                    {trip.mode === "publicTransport" && <span class="tripPoint"> Transporte público</span>}
+                    {trip.mode === "car" && <span class="tripPoint"> Auto</span>}
+                    {trip.mode === "pedestrian" && <span class="tripPoint"> Caminando</span>}
                     </p> 
                     <p className="waypointsSaved">Instrucciones:</p>
                     <div className="divInstructionsSaved">

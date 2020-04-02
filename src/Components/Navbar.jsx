@@ -35,7 +35,10 @@ class Navbar extends React.Component {
         console.log(error);
       });
   }
+
+
   render() {
+
     if (this.state.estado) {
       return (
         <Router>
@@ -55,7 +58,7 @@ class Navbar extends React.Component {
                       </div>
                       <div className="modal-body">
                         <Link to="/SavedRoutes">
-                        <button type="submit" className="btn" id=""
+                        <button type="submit" className="btn btnSaved" id=""
                              >Mis rutas guardadas</button>
                         </Link>
                         <button type="submit" className="btn" id=""
