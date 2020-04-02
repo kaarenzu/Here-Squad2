@@ -11,7 +11,8 @@ import map from '../Imagenes/map.png';
 import social from '../Imagenes/social.png'
 import CrearPost from './Post.jsx'
 import { firebase } from '../Firebase/ConfigFirebase'
-import App from '../App.js'
+import App from '../App.js';
+import VideosYoutube from './Musica.jsx'
 
 class Navbar extends React.Component {
   constructor() {
@@ -79,6 +80,7 @@ class Navbar extends React.Component {
             </Route>
 
             <Route path="/Musica">
+              <VideosYoutube/>
             </Route>
           </div>
         </Router>
