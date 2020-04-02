@@ -25,23 +25,6 @@ class RouteSummary extends Component {
         .then (() => {
             alert('Ruta guardada, entra en la sección de configuración para ver tus rutas guardadas')
         })
-        //   .then((postNew) => {
-        //     const collecionPost = db.collection('post');
-        //     const collecionPostOrdenada = collecionPost.orderBy('datatime', 'desc');
-        //     collecionPostOrdenada.get().then((element) => {
-        //       const postNew = element.docs.map(doc => doc.data());
-        //       console.log(postNew, 'postNew')
-        //       this.setState({
-        //         mensaje: [],
-        //         mostrarPost: postNew,
-        //         name: user.displayName
-        //       })
-        //       this.textAreaPost.current.value = ""
-        //     })
-        //   })
-        //   .catch((error) => {
-        //     console.error('Error adding document: ', error);
-        //   });
       }
 
 
