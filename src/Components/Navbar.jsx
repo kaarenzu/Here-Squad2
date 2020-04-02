@@ -13,6 +13,7 @@ import CrearPost from './Post.jsx'
 import { firebase } from '../Firebase/ConfigFirebase'
 import App from '../App.js';
 import VideosYoutube from './Musica.jsx'
+import SavedRoutes from './SavedRoutes'
 
 class Navbar extends React.Component {
   constructor() {
@@ -22,6 +23,8 @@ class Navbar extends React.Component {
     }
     this.signOut = this.signOut.bind(this)
   }
+
+
   signOut() {
     firebase.auth().signOut()
       .then(() => {
@@ -51,8 +54,10 @@ class Navbar extends React.Component {
                         aria-hidden="true">&times;</button>
                       </div>
                       <div className="modal-body">
+                        <Link to="/SavedRoutes">
                         <button type="submit" className="btn" id=""
-                             data-dismiss="modal">Mis rutas guardadas</button>
+                             >Mis rutas guardadas</button>
+                        </Link>
                         <button type="submit" className="btn" id=""
                           onClick={this.signOut} data-dismiss="modal">Cerrar sesión</button>
                       </div>
@@ -62,13 +67,15 @@ class Navbar extends React.Component {
               </div>
             </nav>
             <nav className="containerNavBar">
-              <Link to="/" className="text-white ">
+              <Link to="/">
                 <img alt="logo" src={map} className="iconBottomBar" />
               </Link>
-              <Link to="/Musica" className="text-white ">
+              <Link to="/Musica">
                 <img alt="logo" src={Group} className="iconBottomBar" />
               </Link>
-              <Link to="/Comunidad" className="text-white "><img alt="logo" src={social} className="iconBottomBar" /></Link>
+              <Link to="/Comunidad">
+                <img alt="logo" src={social} className="iconBottomBar" />
+              </Link>
             </nav>
 
             <Route exact path="/">
@@ -81,6 +88,10 @@ class Navbar extends React.Component {
 
             <Route path="/Musica">
               <VideosYoutube/>
+            </Route>
+
+            <Route path="/SavedRoutes">
+              <SavedRoutes />
             </Route>
           </div>
         </Router>
