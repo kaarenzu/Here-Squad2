@@ -18,6 +18,10 @@ class Map extends React.Component {
             }, 
             instructions: [],
             isLoadingInstructions: false,
+            startingSummary: null,
+            endingSummary: null, 
+            modeSummary: null,
+            maneuvers: [],
         };
     }
 
@@ -60,9 +64,17 @@ class Map extends React.Component {
                 route = result.response.route[0];
                 console.log('>>>>Esta es la ruta', route)
                 console.log('>>>Estas son las maniobras', route.leg[0].maneuver)
+                route.leg[0].maneuver.map(maneuver => 
+                    this.setState(previousState => ({
+                        maneuvers: [...previousState.maneuvers, maneuver.instruction]
+                      })
+                ))
                 this.setState({
                     instructions: route.leg[0].maneuver,
                     isLoadingInstructions: true,
+                    startingSummary: route.waypoint[0].label,
+                    endingSummary: route.waypoint[1].label,
+                    modeSummary: route.mode.transportModes[0],
                 })
 
                 // Pick the route's shape:
@@ -216,7 +228,11 @@ class Map extends React.Component {
             <div ref={this.mapRef} className='map'/>
             <RouteSummary 
             instructions={this.state.instructions}
-            isLoadingInstructions={this.state.isLoadingInstructions}/>
+            isLoadingInstructions={this.state.isLoadingInstructions}
+            startingSummary={this.state.startingSummary}
+            endingSummary={this.state.endingSummary}
+            modeSummary={this.state.modeSummary}
+            maneuvers={this.state.maneuvers}/>
         </div>
         )
     }
