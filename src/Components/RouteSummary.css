@@ -5,6 +5,7 @@
     height: 10em;
     padding: 0.5em 0.8em;
     overflow:scroll;
+    width: 100%;
 }
 
 
@@ -41,4 +42,17 @@
 .divTopSummary {
     display: flex;
     justify-content: flex-end;
+}
+
+.modal-backdrop {
+    display: none;
+}
+
+#ModalBookmark {
+    z-index: 99 !important;
+    position: absolute;
+}
+
+.modal-dialog {
+    z-index: 99 !important;
 }

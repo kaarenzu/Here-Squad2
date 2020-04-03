@@ -22,9 +22,6 @@ class RouteSummary extends Component {
           startPoint: this.props.startingSummary,
           endPoint: this.props.endingSummary,
         })
-        .then (() => {
-            alert('Ruta guardada, entra en la sección de configuración para ver tus rutas guardadas')
-        })
       }
 
 
@@ -41,7 +38,23 @@ class RouteSummary extends Component {
                 {this.props.isLoadingInstructions &&
                     <div className="divInstructions"> 
                         <div className="divTopSummary" >
+                        <a href="#ModalBookmark" role="button" data-toggle="modal">
                             <img src={require('../img/Bookmark.png')} alt="Save Route button" className="buttonSave" onClick={e => this.saveRoute() }/>
+                        </a>    
+                            <div id="ModalBookmark" className="modal fade">
+                                <div className="modal-dialog">
+                                    <div className="modal-content">
+                                    <div className="modal-header">
+                                        <button type="button" className="close" data-dismiss="modal" 
+                                        aria-hidden="true">&times;</button>
+                                    </div>
+                                    <div className="modal-body">
+                                        <button type="submit" className="btn" id=""
+                                        data-dismiss="modal">¡Viaje guardado! Encuéntralo en la sección de configuración</button>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
                         </div>
                         {this.props.maneuvers.map(maneuver => {
                             return (
