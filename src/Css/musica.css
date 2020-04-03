@@ -1,6 +1,7 @@
 .containerVideos{
     display: flex;
     flex-direction: column;
+    overflow: scroll;
 }
 
 .rating-form{
@@ -27,7 +28,8 @@
     font-family: 'Sen', sans-serif;
     color: #41729F;
     text-align: center;
-    margin-top: 3%;
+    margin-top: 1.5em;
+    margin-bottom: 1.2em;
 }
 
 .textCom {
@@ -36,14 +38,34 @@
     margin-bottom: 0;
 }
 
-.btnMusica { 
-    font-family:'Open Sans', sans-serif;
-    margin-bottom: 0.7em;
-    border: 2px solid #D09683;
-    box-sizing: border-box;
-    border-radius: 6px;
-    color: #D09683;
-    color: #E8F2F6;
+
+.selectVideo {
     background-color: #D09683;
-    font-size: 203%;
+    color: #fff;
+    font-family:'Open Sans', sans-serif;
+    width: 15em;
+}
+
+.selectVideo option {
+    background-color: #D09683;
+    color: #fff;
+    font-family:'Open Sans', sans-serif;
+}
+
+.videoDiv {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    padding-bottom: 3em;
+}
+
+.sectionVideos {
+    display: flex;
+    flex-direction: column;
+}
+
+.categories {
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 0.8em;
 }
