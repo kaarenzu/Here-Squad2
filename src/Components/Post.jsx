@@ -70,25 +70,27 @@ class CrearPost extends React.Component {
             <h1 className="headerText textCom">Comunidad Move Calm</h1>
             <h6 className="headerText subHeader">En Move Calm no estás solo:</h6>
           </header>
-          <div className="publicarPost">
-            <textarea ref={this.textAreaPost} type="text" className="textAreaPost" id="post" placeholder="Escribe tu comentario aquí"
-              value={this.state.post} onChange={this.handlePost} />
-            <div className="divOfSend">
-              <img src={require('../img/share.png')} alt="Send button" className="buttonSend"
-                onClick={this.publicarPost} />
+          <div  className="contentCommunity">
+            <div className="publicarPost">
+              <textarea ref={this.textAreaPost} type="text" className="textAreaPost" id="post" placeholder="Escribe tu comentario aquí"
+                value={this.state.post} onChange={this.handlePost} />
+              <div className="divOfSend">
+                <img src={require('../img/share.png')} alt="Send button" className="buttonSend"
+                  onClick={this.publicarPost} />
+              </div>
             </div>
-          </div>
 
-          <div className="containerPublic">
-            {this.state.mostrarPost.map((element, key) => {
-              return (
-                <div className="postArea" key={key}>
-                  <p className="textPost textUser">{element.name + ":"}</p>
-                  <p className="textPost textMessage">{element.mensaje}</p>
-                </div>
-              )
-            })
-            }
+            <div className="containerPublic">
+              {this.state.mostrarPost.map((element, key) => {
+                return (
+                  <div className="postArea" key={key}>
+                    <p className="textPost textUser">{element.name + ":"}</p>
+                    <p className="textPost textMessage">{element.mensaje}</p>
+                  </div>
+                )
+              })
+              }
+            </div>
           </div>
         </div>
       )
