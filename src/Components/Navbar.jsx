@@ -16,8 +16,9 @@ import VideosYoutube from './Musica.jsx'
 import SavedRoutes from './SavedRoutes'
 
 class Navbar extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.modal = React.createRef()
     this.state = {
       estado: true
     }
@@ -36,6 +37,11 @@ class Navbar extends React.Component {
       });
   }
 
+  handleClickSaved = (e) => {
+    // e.target.style.display = 'none'
+    this.modal.current.style.display = 'none'
+  }
+
 
   render() {
 
@@ -49,7 +55,7 @@ class Navbar extends React.Component {
                 <a href="#Modal" role="button" data-toggle="modal">
                   <img src={require('../img/Vector.png')} alt="Options button" className="buttonsTopBar" />
                 </a>
-                <div id="Modal" className="modal fade">
+                <div ref={this.modal} id="Modal" className="modal fade">
                   <div className="modal-dialog">
                     <div className="modal-content">
                       <div className="modal-header">
@@ -59,7 +65,7 @@ class Navbar extends React.Component {
                       <div className="modal-body">
                         <Link to="/SavedRoutes">
                         <button type="submit" className="btn btnSaved" id=""
-                             >Mis rutas guardadas</button>
+                             onClick={e => this.handleClickSaved(e)}>Mis rutas guardadas</button>
                         </Link>
                         <button type="submit" className="btn" id=""
                           onClick={this.signOut} data-dismiss="modal">Cerrar sesión</button>
