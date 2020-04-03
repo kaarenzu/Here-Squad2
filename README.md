@@ -13,7 +13,7 @@ Move Calm, es una aplicación enfocada para personas con movilidad reducida, esp
  #### Música :
  En esta sección te encontrarás con listas de videos de música,técnicas de relajación y meditación para cuando tú lo necesites y asi hacer tu viaje menos agobiante.
 
-![Prototipo](https://github.com/kaarenzu/Here-Squad2/blob/master/src/Imagenes/musica.png?raw=true)
+![Prototipo](https://raw.githubusercontent.com/kaarenzu/Here-Squad2/master/src/Imagenes/musicaa.png)
 
 ### Comunidad Movie Calm :
 Move Calm te invita interactuar en una comunidad que padece de ansiedad, en donde podrás publicar cómo te sientes cuando lo desees, recibir y dar consejos a otras personas, las cuales no olvides están en esta comunidad por la misma razón que tú.
